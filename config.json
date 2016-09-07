@@ -1,0 +1,917 @@
+{
+    "websocket_server": true,
+    "heartbeat_threshold": 10,
+    "enable_social": true,
+    "live_config_update": {
+        "enabled": false,
+        "tasks_only": false
+    },
+    "tasks": [{
+        "type": "TelegramTask",
+        "config": {
+            "enabled": false,
+            "master": null,
+            "alert_catch": {
+                "all": {
+                    "operator": "and",
+                    "cp": 1000,
+                    "iv": 0.90
+                }
+            }
+        }
+    }, {
+        "type": "RandomAlivePause",
+        "config": {
+            "enabled": false,
+            "min_duration": "00:00:10",
+            "max_duration": "00:10:00",
+            "min_interval": "00:05:00",
+            "max_interval": "01:30:00"
+        }
+    }, {
+        "type": "HandleSoftBan"
+    }, {
+        "type": "RandomPause",
+        "config": {
+            "enabled": false,
+            "min_duration": "00:00:10",
+            "max_duration": "00:10:00",
+            "min_interval": "00:10:00",
+            "max_interval": "02:00:00"
+        }
+    }, {
+        "type": "CompleteTutorial",
+        "config": {
+            "enabled": false,
+            "nickname": ""
+        }
+    }, {
+        "type": "CollectLevelUpReward",
+        "config": {
+            "collect_reward": true,
+            "level_limit": -1
+        }
+    }, {
+        "type": "IncubateEggs",
+        "config": {
+            "enabled": true,
+            "infinite_longer_eggs_first": false,
+            "breakable_longer_eggs_first": true,
+            "min_interval": 120,
+            "infinite": [2, 5, 10],
+            "breakable": [2, 5, 10]
+        }
+    }, {
+        "type": "UpdateLiveStats",
+        "config": {
+            "enabled": true,
+            "min_interval": 10,
+            "stats": ["username", "level_stats", "uptime", "stardust_earned", "xp_earned", "xp_per_hour", "stops_visited"],
+            "terminal_log": true,
+            "terminal_title": false
+        }
+    }, {
+        "type": "UpdateLiveInventory",
+        "config": {
+            "enabled": true,
+            "min_interval": 120,
+            "show_all_multiple_lines": false,
+            "items": ["pokemon_bag", "space_info", "pokeballs", "greatballs", "ultraballs", "razzberries", "luckyegg"]
+        }
+    }, {
+        "type": "ShowBestPokemon",
+        "config": {
+            "enabled": true,
+            "min_interval": 60,
+            "amount": 5,
+            "order_by": "cp",
+            "info_to_show": ["cp", "ivcp", "dps", "hp"]
+        }
+    }, {
+        "type": "TransferPokemon",
+        "config": {
+            "enabled": true,
+            "min_free_slot": 10,
+            "transfer_wait_min": 3,
+            "transfer_wait_max": 5
+        }
+    }, {
+        "type": "NicknamePokemon",
+        "config": {
+            "enabled": true,
+            "nickname_above_iv": 0.9,
+            "nickname_template": "{name}_{iv_pct2}"
+        }
+    }, {
+        "type": "EvolvePokemon",
+        "config": {
+            "enabled": true,
+
+            "evolve_list": "Caterpie, Weedle, Pidgey",
+            "donot_evolve_list": "none",
+
+            "first_evolve_by": "iv",
+            "evolve_above_cp": 0,
+            "evolve_above_iv": 0,
+            "logic": "or",
+            "min_evolve_speed": 25,
+            "max_evolve_speed": 30,
+            "use_lucky_egg": false
+        }
+    }, {
+        "type": "RecycleItems",
+        "config": {
+            "enabled": true,
+            "min_empty_space": 15,
+            "max_balls_keep": 150,
+            "max_potions_keep": 50,
+            "max_berries_keep": 70,
+            "max_revives_keep": 70,
+            "item_filter": {
+                "Pokeball": {
+                    "keep": 100
+                },
+                "Potion": {
+                    "keep": 10
+                },
+                "Super Potion": {
+                    "keep": 20
+                },
+                "Hyper Potion": {
+                    "keep": 30
+                },
+                "Revive": {
+                    "keep": 30
+                },
+                "Razz Berry": {
+                    "keep": 100
+                }
+            },
+            "recycle_wait_min": 3,
+            "recycle_wait_max": 5,
+            "recycle_force": true,
+            "recycle_force_min": "00:01:00",
+            "recycle_force_max": "00:05:00"
+        }
+    }, {
+        "type": "CatchPokemon",
+        "config": {
+            "enabled": true,
+            "catch_visible_pokemon": true,
+            "catch_lured_pokemon": true,
+            "min_ultraball_to_keep": 5,
+            "berry_threshold": 0.35,
+            "vip_berry_threshold": 0.9,
+            "treat_unseen_as_vip": true,
+            "daily_catch_limit": 800,
+            "catch_throw_parameters": {
+                "excellent_rate": 0.2,
+                "great_rate": 0.5,
+                "nice_rate": 0.2,
+                "normal_rate": 0.1,
+                "spin_success_rate": 0.6,
+                "hit_rate": 0.75
+            },
+            "catch_simulation": {
+                "flee_count": 3,
+                "flee_duration": 2,
+                "catch_wait_min": 3,
+                "catch_wait_max": 6,
+                "berry_wait_min": 3,
+                "berry_wait_max": 5,
+                "changeball_wait_min": 3,
+                "changeball_wait_max": 5,
+                "newtodex_wait_min": 20,
+                "newtodex_wait_max": 30
+            }
+        }
+    }, {
+        "type": "SpinFort",
+        "config": {
+            "enabled": true,
+            "spin_wait_min": 3,
+            "spin_wait_max": 5,
+            "daily_spin_limit": 1900
+        }
+    }, {
+        "type": "UpdateWebInventory",
+        "config": {
+            "enabled": true
+        }
+    }, {
+        "type": "MoveToFort",
+        "config": {
+            "enabled": true,
+            "lure_attraction": true,
+            "lure_max_distance": 2000,
+            "walker": "StepWalker",
+            "log_interval": 5
+        }
+    }, {
+        "type": "FollowSpiral",
+        "config": {
+            "enabled": true,
+            "diameter": 4,
+            "step_size": 70
+        }
+    }],
+    "map_object_cache_time": 5,
+    "forts": {
+        "avoid_circles": false,
+        "max_circle_size": 50,
+        "cache_recent_forts": true
+    },
+    "pokemon_bag": {
+        "show_at_start": true,
+        "show_count": true,
+        "show_candies": true,
+        "pokemon_info": ["cp", "iv_pct", "level"]
+    },
+    "walk_max": 4.16,
+    "walk_min": 2.16,
+    "alt_min": 500,
+    "alt_max": 1000,
+
+    "sleep_schedule": [{
+        "time": "23:00",
+        "duration": "5:00",
+        "time_random_offset": "00:30",
+        "duration_random_offset": "00:30",
+        "wake_up_at_location": ""
+    }, {
+        "time": "10:45",
+        "duration": "3:00",
+        "time_random_offset": "00:30",
+        "duration_random_offset": "00:30",
+        "wake_up_at_location": ""
+    }, {
+        "time": "18:30",
+        "duration": "2:00",
+        "time_random_offset": "00:30",
+        "duration_random_offset": "00:30",
+        "wake_up_at_location": ""
+    }],
+
+    "gps_default_altitude": 8.0,
+    "replicate_gps_xy_noise": false,
+    "replicate_gps_z_noise": false,
+    "gps_xy_noise_range": 0.000125,
+    "gps_z_noise_range": 12.5,
+    "debug": false,
+    "test": false,
+    "walker_limit_output": false,
+    "health_record": true,
+    "location_cache": false,
+    "distance_unit": "km",
+    "reconnecting_timeout": 15,
+    "logging": {
+        "color": true,
+        "show_datetime": true,
+        "show_process_name": true,
+        "show_log_level": true
+    },
+    "catch": {
+        "any": {
+            "catch_above_cp": 0,
+            "catch_above_iv": 0,
+            "logic": "or"
+        }
+    },
+    "release": {
+        "any": {
+            "release_below_cp": 0,
+            "release_below_iv": 0,
+            "logic": "or"
+        },
+        "Bulbasaur": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Ivysaur": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Venusaur": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Charmander": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Charmeleon": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Charizard": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Squirtle": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Wartortle": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Blastoise": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Caterpie": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Metapod": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Butterfree": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Weedle": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Kakuna": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Beedrill": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Pidgey": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Pidgeotto": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Pidgeot": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Rattata": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Raticate": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Spearow": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Fearow": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Ekans": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Arbok": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Pikachu": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Raichu": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Sandshrew": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Sandslash": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Nidoran F": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Nidorina": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Nidoqueen": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Nidoran M": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Nidorino": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Nidoking": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Clefairy": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Clefable": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Vulpix": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Ninetales": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Jigglypuff": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Wigglytuff": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Zubat": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Golbat": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Oddish": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Gloom": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Vileplume": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Paras": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Parasect": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Venonat": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Venomoth": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Diglett": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Dugtrio": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Meowth": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Persian": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Psyduck": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Golduck": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Mankey": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Primeape": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Growlithe": {
+            "keep_best_custom": "iv, cp",
+            "amount": 1
+        },
+        "Arcanine": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Poliwag": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Poliwhirl": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Poliwrath": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Abra": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Kadabra": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Alakazam": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Machop": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Machoke": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Machamp": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Bellsprout": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Weepinbell": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Victreebel": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Tentacool": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Tentacruel": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Geodude": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Graveler": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Golem": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Ponyta": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Rapidash": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Slowpoke": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Slowbro": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Magnemite": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Magneton": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Farfetch'd": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Doduo": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Dodrio": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Seel": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Dewgong": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Grimer": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Muk": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Shellder": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Cloyster": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Gastly": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Haunter": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Gengar": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Onix": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Drowzee": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Hypno": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Krabby": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Kingler": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Voltorb": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Electrode": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Exeggcute": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Exeggutor": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Cubone": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Marowak": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Hitmonlee": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Hitmonchan": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Lickitung": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Koffing": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Weezing": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Rhyhorn": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Rhydon": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Chansey": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Tangela": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Kangaskhan": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Horsea": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Seadra": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Goldeen": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Seaking": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Staryu": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Starmie": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Mr. Mime": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Scyther": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Jynx": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Electabuzz": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Magmar": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Pinsir": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Tauros": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Magikarp": {
+            "keep_best_custom": "iv",
+            "amount": 1
+        },
+        "Gyarados": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Lapras": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Ditto": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Eevee": {
+            "keep_best_custom": "iv",
+            "amount": 10
+        },
+        "Vaporeon": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Jolteon": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Flareon": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Porygon": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Omanyte": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Omastar": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Kabuto": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Kabutops": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Aerodactyl": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Snorlax": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Articuno": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Zapdos": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Moltres": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Dratini": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Dragonair": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Dragonite": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Mewtwo": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        },
+        "Mew": {
+            "keep_best_custom": "cp, iv",
+            "amount": 10
+        }
+    },
+    "vips": {
+        "any": {
+            "catch_above_cp": 1200,
+            "catch_above_iv": 0.9,
+            "logic": "or"
+        },
+        "Lapras": {},
+        "Moltres": {},
+        "Zapdos": {},
+        "Articuno": {},
+        "Mewtwo": {},
+        "Dragonite": {},
+        "Snorlax": {},
+        "Mew": {},
+        "Arcanine": {},
+        "Vaporeon": {},
+        "Gyarados": {},
+        "Exeggutor": {},
+        "Muk": {},
+        "Weezing": {},
+        "Flareon": {}
+    },
+    "websocket": {
+        "start_embedded_server": true,
+        "server_url": "127.0.0.1:4000"
+    }
+}
