@@ -107,7 +107,7 @@
         "config": {
             "enabled": true,
 
-            "evolve_list": "Caterpie, Weedle, Pidgey",
+            "evolve_list": "Caterpie, Weedle, Pidgey, Bulbasaur, Charmander, Squirtle, Rattata, Spearow, Ekans, Nidoran F, Nidoran M, Poliwag, Bellsprout, Magnemite, Doduo, Gastly",
             "donot_evolve_list": "none",
 
             "first_evolve_by": "iv",
