@@ -1,10 +1,10 @@
 {
-    "websocket_server": true,
+    "websocket_server": false,
     "heartbeat_threshold": 10,
-    "enable_social": true,
+    "enable_social": false,
     "live_config_update": {
-        "enabled": false,
-        "tasks_only": false
+        "enabled": true,
+        "tasks_only": true
     },
     "tasks": [{
         "type": "TelegramTask",
@@ -14,8 +14,22 @@
             "alert_catch": {
                 "all": {
                     "operator": "and",
-                    "cp": 1000,
-                    "iv": 0.90
+                    "cp": 1300,
+                    "iv": 0.95
+                }
+            },
+            "password": "9981"
+        }
+    }, {
+        "type": "DiscordTask",
+        "config": {
+            "enabled": false,
+            "master": null,
+            "alert_catch": {
+                "all": {
+                    "operator": "and",
+                    "cp": 1300,
+                    "iv": 0.95
                 }
             }
         }
@@ -33,17 +47,18 @@
     }, {
         "type": "RandomPause",
         "config": {
-            "enabled": false,
+            "enabled": true,
             "min_duration": "00:00:10",
-            "max_duration": "00:10:00",
-            "min_interval": "00:10:00",
-            "max_interval": "02:00:00"
+            "max_duration": "00:03:00",
+            "min_interval": "00:30:00",
+            "max_interval": "01:00:00"
         }
     }, {
         "type": "CompleteTutorial",
         "config": {
             "enabled": false,
-            "nickname": ""
+            "nickname": "",
+            "team": 0
         }
     }, {
         "type": "CollectLevelUpReward",
@@ -55,17 +70,17 @@
         "type": "IncubateEggs",
         "config": {
             "enabled": true,
-            "infinite_longer_eggs_first": false,
-            "breakable_longer_eggs_first": true,
+            "infinite_longer_eggs_first": true,
+            "breakable_longer_eggs_first": false,
             "min_interval": 120,
             "infinite": [2, 5, 10],
-            "breakable": [2, 5, 10]
+            "breakable": [10, 5, 2]
         }
     }, {
         "type": "UpdateLiveStats",
         "config": {
             "enabled": true,
-            "min_interval": 10,
+            "min_interval": 30,
             "stats": ["username", "level_stats", "uptime", "stardust_earned", "xp_earned", "xp_per_hour", "stops_visited"],
             "terminal_log": true,
             "terminal_title": false
@@ -74,8 +89,8 @@
         "type": "UpdateLiveInventory",
         "config": {
             "enabled": true,
-            "min_interval": 120,
-            "show_all_multiple_lines": false,
+            "min_interval": 60,
+            "show_all_multiple_lines": true,
             "items": ["pokemon_bag", "space_info", "pokeballs", "greatballs", "ultraballs", "razzberries", "luckyegg"]
         }
     }, {
@@ -85,13 +100,13 @@
             "min_interval": 60,
             "amount": 5,
             "order_by": "cp",
-            "info_to_show": ["cp", "ivcp", "dps", "hp"]
+            "info_to_show": ["cp", "ivcp", "dps"]
         }
     }, {
         "type": "TransferPokemon",
         "config": {
             "enabled": true,
-            "min_free_slot": 10,
+            "min_free_slot": 25,
             "transfer_wait_min": 3,
             "transfer_wait_max": 5
         }
@@ -100,16 +115,16 @@
         "config": {
             "enabled": true,
             "nickname_above_iv": 0.9,
-            "nickname_template": "{name}_{iv_pct2}"
+            "nickname_template": "{name}_{iv_pct2}",
+            "nickname_wait_min": 3,
+            "nickname_wait_max": 5
         }
     }, {
         "type": "EvolvePokemon",
         "config": {
             "enabled": true,
-
             "evolve_list": "Caterpie, Weedle, Pidgey, Bulbasaur, Charmander, Squirtle, Rattata, Spearow, Ekans, Nidoran F, Nidoran M, Poliwag, Bellsprout, Magnemite, Doduo, Gastly",
             "donot_evolve_list": "none",
-
             "first_evolve_by": "iv",
             "evolve_above_cp": 0,
             "evolve_above_iv": 0,
@@ -117,6 +132,17 @@
             "min_evolve_speed": 25,
             "max_evolve_speed": 30,
             "use_lucky_egg": false
+        }
+    }, {
+        "type": "UseIncense",
+        "config": {
+            "use_incense": false,
+            "use_order": [
+                "ordinary",
+                "spicy",
+                "cool",
+                "floral"
+            ]
         }
     }, {
         "type": "RecycleItems",
@@ -164,6 +190,11 @@
             "vip_berry_threshold": 0.9,
             "treat_unseen_as_vip": true,
             "daily_catch_limit": 800,
+            "vanish_settings": {
+                "consecutive_vanish_limit": 10,
+                "rest_duration_min": "02:00:00",
+                "rest_duration_max": "04:00:00"
+            },
             "catch_throw_parameters": {
                 "excellent_rate": 0.2,
                 "great_rate": 0.5,
@@ -218,39 +249,54 @@
     "map_object_cache_time": 5,
     "forts": {
         "avoid_circles": false,
-        "max_circle_size": 50,
-        "cache_recent_forts": true
+        "max_circle_size": 250,
+        "cache_recent_forts": false
     },
     "pokemon_bag": {
         "show_at_start": true,
         "show_count": true,
         "show_candies": true,
-        "pokemon_info": ["cp", "iv_pct", "level"]
+        "pokemon_info": ["level", "cp", "iv_pct"]
     },
     "walk_max": 4.16,
     "walk_min": 2.16,
     "alt_min": 500,
     "alt_max": 1000,
 
-    "sleep_schedule": [{
-        "time": "23:00",
-        "duration": "5:00",
-        "time_random_offset": "00:30",
-        "duration_random_offset": "00:30",
-        "wake_up_at_location": ""
-    }, {
-        "time": "10:45",
-        "duration": "3:00",
-        "time_random_offset": "00:30",
-        "duration_random_offset": "00:30",
-        "wake_up_at_location": ""
-    }, {
-        "time": "18:30",
-        "duration": "2:00",
-        "time_random_offset": "00:30",
-        "duration_random_offset": "00:30",
-        "wake_up_at_location": ""
-    }],
+    "sleep_schedule": {
+        "enabled": false,
+        "enable_reminder": false,
+        "reminder_interval": 600,
+        "entries": [{
+            "enabled": true,
+            "time": "02:00",
+            "duration": "4:00",
+            "time_random_offset": "00:15",
+            "duration_random_offset": "00:15",
+            "wake_up_at_location": "25.136749805291696, 121.50361105799675"
+        }, {
+            "enabled": true,
+            "time": "09:00",
+            "duration": "1:00",
+            "time_random_offset": "00:15",
+            "duration_random_offset": "00:15",
+            "wake_up_at_location": "24.84479343174361, 120.92597723007202"
+        }, {
+            "enabled": true,
+            "time": "16:00",
+            "duration": "1:00",
+            "time_random_offset": "00:15",
+            "duration_random_offset": "00:15",
+            "wake_up_at_location": "25.136749805291696, 121.50361105799675"
+        }, {
+            "enabled": true,
+            "time": "21:00",
+            "duration": "1:00",
+            "time_random_offset": "00:15",
+            "duration_random_offset": "00:15",
+            "wake_up_at_location": "25.001628759961704, 121.5123724937439"
+        }]
+    },
 
     "gps_default_altitude": 8.0,
     "replicate_gps_xy_noise": false,
@@ -268,7 +314,8 @@
         "color": true,
         "show_datetime": true,
         "show_process_name": true,
-        "show_log_level": true
+        "show_log_level": true,
+        "show_thread_name": false
     },
     "catch": {
         "any": {
@@ -328,8 +375,9 @@
             "amount": 1
         },
         "Butterfree": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
+            "release_below_cp": 1000,
+            "release_below_iv": 60,
+            "logic": "and"
         },
         "Weedle": {
             "keep_best_custom": "iv",
@@ -340,8 +388,9 @@
             "amount": 1
         },
         "Beedrill": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
+            "release_below_cp": 1000,
+            "release_below_iv": 60,
+            "logic": "and"
         },
         "Pidgey": {
             "keep_best_custom": "iv",
@@ -352,32 +401,36 @@
             "amount": 1
         },
         "Pidgeot": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
+            "release_below_cp": 1000,
+            "release_below_iv": 60,
+            "logic": "and"
         },
         "Rattata": {
             "keep_best_custom": "iv",
             "amount": 1
         },
         "Raticate": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
+          "release_below_cp": 1000,
+          "release_below_iv": 60,
+          "logic": "and"
         },
         "Spearow": {
             "keep_best_custom": "iv",
             "amount": 1
         },
         "Fearow": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
+          "release_below_cp": 1000,
+          "release_below_iv": 60,
+          "logic": "and"
         },
         "Ekans": {
             "keep_best_custom": "iv",
             "amount": 1
         },
         "Arbok": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
+          "release_below_cp": 1000,
+          "release_below_iv": 60,
+          "logic": "and"
         },
         "Pikachu": {
             "keep_best_custom": "iv",
@@ -448,8 +501,9 @@
             "amount": 1
         },
         "Golbat": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
+          "release_below_cp": 1000,
+          "release_below_iv": 60,
+          "logic": "and"
         },
         "Oddish": {
             "keep_best_custom": "iv",
@@ -528,8 +582,9 @@
             "amount": 1
         },
         "Poliwrath": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
+          "release_below_cp": 1000,
+          "release_below_iv": 60,
+          "logic": "and"
         },
         "Abra": {
             "keep_best_custom": "iv",
@@ -564,8 +619,9 @@
             "amount": 1
         },
         "Victreebel": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
+          "release_below_cp": 1000,
+          "release_below_iv": 60,
+          "logic": "and"
         },
         "Tentacool": {
             "keep_best_custom": "iv",
@@ -608,8 +664,9 @@
             "amount": 1
         },
         "Magneton": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
+          "release_below_cp": 1000,
+          "release_below_iv": 60,
+          "logic": "and"
         },
         "Farfetch'd": {
             "keep_best_custom": "cp, iv",
@@ -620,8 +677,9 @@
             "amount": 1
         },
         "Dodrio": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
+          "release_below_cp": 1000,
+          "release_below_iv": 60,
+          "logic": "and"
         },
         "Seel": {
             "keep_best_custom": "iv",
@@ -632,8 +690,9 @@
             "amount": 10
         },
         "Grimer": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
+          "release_below_cp": 1000,
+          "release_below_iv": 60,
+          "logic": "and"
         },
         "Muk": {
             "keep_best_custom": "cp, iv",
@@ -644,8 +703,9 @@
             "amount": 1
         },
         "Cloyster": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
+          "release_below_cp": 1000,
+          "release_below_iv": 60,
+          "logic": "and"
         },
         "Gastly": {
             "keep_best_custom": "iv",
@@ -676,8 +736,9 @@
             "amount": 1
         },
         "Kingler": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
+          "release_below_cp": 1000,
+          "release_below_iv": 60,
+          "logic": "and"
         },
         "Voltorb": {
             "keep_best_custom": "iv",
@@ -736,8 +797,9 @@
             "amount": 10
         },
         "Tangela": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
+          "release_below_cp": 1000,
+          "release_below_iv": 60,
+          "logic": "and"
         },
         "Kangaskhan": {
             "keep_best_custom": "cp, iv",
@@ -756,24 +818,27 @@
             "amount": 1
         },
         "Seaking": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
+          "release_below_cp": 1000,
+          "release_below_iv": 60,
+          "logic": "and"
         },
         "Staryu": {
             "keep_best_custom": "iv",
             "amount": 1
         },
         "Starmie": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
+          "release_below_cp": 1000,
+          "release_below_iv": 60,
+          "logic": "and"
         },
         "Mr. Mime": {
             "keep_best_custom": "cp, iv",
             "amount": 10
         },
         "Scyther": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
+          "release_below_cp": 1000,
+          "release_below_iv": 60,
+          "logic": "and"
         },
         "Jynx": {
             "keep_best_custom": "cp, iv",
