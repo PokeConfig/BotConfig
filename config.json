@@ -106,7 +106,7 @@
         "type": "TransferPokemon",
         "config": {
             "enabled": true,
-            "min_free_slot": 25,
+            "min_free_slot": 5,
             "transfer_wait_min": 3,
             "transfer_wait_max": 5
         }
