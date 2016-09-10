@@ -9,7 +9,7 @@
     "tasks": [{
         "type": "TelegramTask",
         "config": {
-            "enabled": false,
+            "enabled": true,
             "master": null,
             "alert_catch": {
                 "all": {
@@ -264,8 +264,8 @@
     "alt_max": 1000,
 
     "sleep_schedule": {
-        "enabled": false,
-        "enable_reminder": false,
+        "enabled": true,
+        "enable_reminder": true,
         "reminder_interval": 600,
         "entries": [{
             "enabled": true,
