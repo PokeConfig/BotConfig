@@ -80,7 +80,7 @@
         "type": "UpdateLiveStats",
         "config": {
             "enabled": true,
-            "min_interval": 30,
+            "min_interval": 60,
             "stats": ["username", "level_stats", "uptime", "stardust_earned", "xp_earned", "xp_per_hour", "stops_visited"],
             "terminal_log": true,
             "terminal_title": false
@@ -89,7 +89,7 @@
         "type": "UpdateLiveInventory",
         "config": {
             "enabled": true,
-            "min_interval": 60,
+            "min_interval": 120,
             "show_all_multiple_lines": true,
             "items": ["pokemon_bag", "space_info", "pokeballs", "greatballs", "ultraballs", "razzberries", "luckyegg"]
         }
@@ -189,7 +189,7 @@
             "berry_threshold": 0.35,
             "vip_berry_threshold": 0.9,
             "treat_unseen_as_vip": true,
-            "daily_catch_limit": 800,
+            "daily_catch_limit": 1000,
             "vanish_settings": {
                 "consecutive_vanish_limit": 10,
                 "rest_duration_min": "02:00:00",
@@ -258,6 +258,7 @@
         "show_candies": true,
         "pokemon_info": ["level", "cp", "iv_pct"]
     },
+
     "walk_max": 4.16,
     "walk_min": 2.16,
     "alt_min": 500,
@@ -410,27 +411,27 @@
             "amount": 1
         },
         "Raticate": {
-          "release_below_cp": 1000,
-          "release_below_iv": 60,
-          "logic": "and"
+            "release_below_cp": 1000,
+            "release_below_iv": 60,
+            "logic": "and"
         },
         "Spearow": {
             "keep_best_custom": "iv",
             "amount": 1
         },
         "Fearow": {
-          "release_below_cp": 1000,
-          "release_below_iv": 60,
-          "logic": "and"
+            "release_below_cp": 1000,
+            "release_below_iv": 60,
+            "logic": "and"
         },
         "Ekans": {
             "keep_best_custom": "iv",
             "amount": 1
         },
         "Arbok": {
-          "release_below_cp": 1000,
-          "release_below_iv": 60,
-          "logic": "and"
+            "release_below_cp": 1000,
+            "release_below_iv": 60,
+            "logic": "and"
         },
         "Pikachu": {
             "keep_best_custom": "iv",
@@ -501,9 +502,9 @@
             "amount": 1
         },
         "Golbat": {
-          "release_below_cp": 1000,
-          "release_below_iv": 60,
-          "logic": "and"
+            "release_below_cp": 1000,
+            "release_below_iv": 60,
+            "logic": "and"
         },
         "Oddish": {
             "keep_best_custom": "iv",
@@ -582,9 +583,9 @@
             "amount": 1
         },
         "Poliwrath": {
-          "release_below_cp": 1000,
-          "release_below_iv": 60,
-          "logic": "and"
+            "release_below_cp": 1000,
+            "release_below_iv": 60,
+            "logic": "and"
         },
         "Abra": {
             "keep_best_custom": "iv",
@@ -619,9 +620,9 @@
             "amount": 1
         },
         "Victreebel": {
-          "release_below_cp": 1000,
-          "release_below_iv": 60,
-          "logic": "and"
+            "release_below_cp": 1000,
+            "release_below_iv": 60,
+            "logic": "and"
         },
         "Tentacool": {
             "keep_best_custom": "iv",
@@ -664,9 +665,9 @@
             "amount": 1
         },
         "Magneton": {
-          "release_below_cp": 1000,
-          "release_below_iv": 60,
-          "logic": "and"
+            "release_below_cp": 1000,
+            "release_below_iv": 60,
+            "logic": "and"
         },
         "Farfetch'd": {
             "keep_best_custom": "cp, iv",
@@ -677,9 +678,9 @@
             "amount": 1
         },
         "Dodrio": {
-          "release_below_cp": 1000,
-          "release_below_iv": 60,
-          "logic": "and"
+            "release_below_cp": 1000,
+            "release_below_iv": 60,
+            "logic": "and"
         },
         "Seel": {
             "keep_best_custom": "iv",
@@ -690,9 +691,9 @@
             "amount": 10
         },
         "Grimer": {
-          "release_below_cp": 1000,
-          "release_below_iv": 60,
-          "logic": "and"
+            "release_below_cp": 1000,
+            "release_below_iv": 60,
+            "logic": "and"
         },
         "Muk": {
             "keep_best_custom": "cp, iv",
@@ -703,9 +704,9 @@
             "amount": 1
         },
         "Cloyster": {
-          "release_below_cp": 1000,
-          "release_below_iv": 60,
-          "logic": "and"
+            "release_below_cp": 1000,
+            "release_below_iv": 60,
+            "logic": "and"
         },
         "Gastly": {
             "keep_best_custom": "iv",
@@ -736,9 +737,9 @@
             "amount": 1
         },
         "Kingler": {
-          "release_below_cp": 1000,
-          "release_below_iv": 60,
-          "logic": "and"
+            "release_below_cp": 1000,
+            "release_below_iv": 60,
+            "logic": "and"
         },
         "Voltorb": {
             "keep_best_custom": "iv",
@@ -797,9 +798,9 @@
             "amount": 10
         },
         "Tangela": {
-          "release_below_cp": 1000,
-          "release_below_iv": 60,
-          "logic": "and"
+            "release_below_cp": 1000,
+            "release_below_iv": 60,
+            "logic": "and"
         },
         "Kangaskhan": {
             "keep_best_custom": "cp, iv",
@@ -818,27 +819,27 @@
             "amount": 1
         },
         "Seaking": {
-          "release_below_cp": 1000,
-          "release_below_iv": 60,
-          "logic": "and"
+            "release_below_cp": 1000,
+            "release_below_iv": 60,
+            "logic": "and"
         },
         "Staryu": {
             "keep_best_custom": "iv",
             "amount": 1
         },
         "Starmie": {
-          "release_below_cp": 1000,
-          "release_below_iv": 60,
-          "logic": "and"
+            "release_below_cp": 1000,
+            "release_below_iv": 60,
+            "logic": "and"
         },
         "Mr. Mime": {
             "keep_best_custom": "cp, iv",
             "amount": 10
         },
         "Scyther": {
-          "release_below_cp": 1000,
-          "release_below_iv": 60,
-          "logic": "and"
+            "release_below_cp": 1000,
+            "release_below_iv": 60,
+            "logic": "and"
         },
         "Jynx": {
             "keep_best_custom": "cp, iv",
