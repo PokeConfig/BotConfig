@@ -144,7 +144,7 @@
               "Graveler": 500,
               "Golem": 800,
 
-              "Eevee": 200,
+              "~Eevee": 200,
               "Vaporeon": 800,
               "Jolteon": 800,
               "Flareon": 800,
@@ -590,7 +590,7 @@
     "alt_max": 1000,
 
     "sleep_schedule": {
-        "enabled": true,
+        "enabled": false,
         "enable_reminder": false,
         "reminder_interval": 600,
         "entries": [{
