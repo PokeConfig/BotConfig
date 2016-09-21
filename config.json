@@ -10,11 +10,11 @@
         "type": "Sniper",
         "config": {
             "enabled": true,
-            "mode": "social",
-            "bullets": 3,
+            "mode": "url",
+            "bullets": 1,
             "homing_shots": true,
             "special_iv": 100,
-            "order": ["missing", "iv", "priority", "vip", "expiration_timestamp_ms"],
+            "order": ["missing", "iv", "priority", "vip"],
             "sources": [{
                 "url": "http://pokesnipers.com/api/v1/pokemon.json",
                 "key": "results",
@@ -51,7 +51,7 @@
               "Mew": 1000,
 
               "==========Region Locked==========": 0,
-              "Farfetch'd": 1000,
+              "~Farfetch'd": 1000,
               "Kangaskhan": 1000,
               "Mr. Mime": 1000,
               "Tauros": 1000,
@@ -88,60 +88,60 @@
               "Omanyte": 150,
               "Omastar": 500,
 
-              "Seel": 300,
-              "Dewgong": 500,
+              "~Seel": 300,
+              "~Dewgong": 500,
 
-              "Grimer": 200,
-              "Muk": 500,
+              "~Grimer": 200,
+              "~Muk": 500,
 
-              "Shellder": 200,
-              "Cloyster": 500,
+              "~Shellder": 200,
+              "~Cloyster": 500,
 
-              "Gastly": 200,
-              "Haunter": 500,
-              "Gengar": 1000,
+              "~Gastly": 200,
+              "~Haunter": 500,
+              "~Gengar": 1000,
 
-              "Onix": 600,
+              "~Onix": 600,
 
-              "Drowzee": 600,
+              "~Drowzee": 600,
 
-              "Hypno": 600,
+              "~Hypno": 600,
 
               "Vulpix": 200,
               "Ninetales": 600,
 
-              "Paras": 100,
-              "Parasect": 500,
+              "~Paras": 100,
+              "~Parasect": 500,
 
-              "Growlithe": 200,
+              "~Growlithe": 200,
               "Arcanine": 700,
 
-              "Tentacool": 200,
+              "~Tentacool": 200,
               "Tentacruel": 500,
 
-              "Mankey": 150,
+              "~Mankey": 150,
               "Primeape": 500,
 
               "~Clefairy": 150,
               "~Clefable": 500,
 
-              "Jigglypuff": 150,
+              "~Jigglypuff": 150,
               "Wigglytuff": 500,
 
-              "Venonat": 100,
+              "~Venonat": 100,
               "Venomoth": 500,
 
-              "Diglett": 200,
+              "~Diglett": 200,
               "Dugtrio": 500,
 
-              "Meowth": 250,
+              "~Meowth": 250,
               "Persian": 500,
 
               "~Psyduck": 150,
               "~Golduck": 500,
 
-              "Geodude": 100,
-              "Graveler": 500,
+              "~Geodude": 100,
+              "~Graveler": 500,
               "Golem": 800,
 
               "~Eevee": 200,
@@ -149,7 +149,7 @@
               "Jolteon": 800,
               "Flareon": 800,
 
-              "Kabuto": 150,
+              "~Kabuto": 150,
               "Kabutops": 500,
 
               "~Magikarp": 150,
@@ -157,7 +157,7 @@
 
               "~Pinsir": 150,
 
-              "Ponyta": 200,
+              "~Ponyta": 200,
               "Rapidash": 500,
 
               "~Slowpoke": 200,
@@ -169,13 +169,13 @@
               "~Krabby": 100,
               "~Kingler": 500,
 
-              "Voltorb": 200,
-              "Electrode": 500,
+              "~Voltorb": 200,
+              "~Electrode": 500,
 
-              "Exeggcute": 250,
+              "~Exeggcute": 250,
               "Exeggcutor": 500,
 
-              "Cubone": 300,
+              "~Cubone": 300,
               "Marowak": 800,
 
               "Hitmonlee": 400,
@@ -184,15 +184,15 @@
 
               "Lickitung": 500,
 
-              "Koffing": 200,
+              "~Koffing": 200,
               "Weezing": 500,
 
-              "Rhyhorn": 200,
+              "~Rhyhorn": 200,
               "Rhydon": 500,
 
               "Chansey": 800,
 
-              "Tangela": 300,
+              "~Tangela": 300,
 
               "~Horsea": 200,
               "~Seadra": 600,
@@ -215,7 +215,7 @@
 
               "~Pidgey": 10,
               "~Pidgeotto": 10,
-              "Pidgeot": 300,
+              "~Pidgeot": 300,
 
               "==========T2 Evolvers==========": 0,
               "~Nidoran F": 10,
@@ -226,19 +226,19 @@
               "~Nidorino": 10,
               "~Nidoking": 10,
 
-              "Oddish": 100,
-              "Gloom": 200,
+              "~Oddish": 100,
+              "~Gloom": 200,
               "Vileplume": 600,
 
               "~Poliwag": 200,
               "~Poliwhirl": 400,
               "~Poliwrath": 800,
 
-              "Abra": 300,
+              "~Abra": 300,
               "Kadabra": 600,
               "Alakazam": 800,
 
-              "Machop": 150,
+              "~Machop": 150,
               "Machoke": 400,
               "Machamp": 800,
 
