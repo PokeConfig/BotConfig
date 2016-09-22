@@ -51,7 +51,7 @@
               "Mew": 1000,
 
               "==========Region Locked==========": 0,
-              "~Farfetch'd": 1000,
+              "Farfetch'd": 1000,
               "Kangaskhan": 1000,
               "Mr. Mime": 1000,
               "Tauros": 1000,
@@ -590,7 +590,7 @@
     "alt_max": 1000,
 
     "sleep_schedule": {
-        "enabled": false,
+        "enabled": true,
         "enable_reminder": false,
         "reminder_interval": 600,
         "entries": [{
