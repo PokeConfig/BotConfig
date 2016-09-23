@@ -7,311 +7,6 @@
         "tasks_only": false
     },
     "tasks": [{
-        "type": "Sniper",
-        "config": {
-            "enabled": true,
-            "mode": "social",
-            "bullets": 1,
-            "homing_shots": true,
-            "special_iv": 100,
-            "order": ["missing", "iv", "priority", "vip"],
-            "sources": [{
-                "url": "http://pokesnipers.com/api/v1/pokemon.json",
-                "key": "results",
-                "mappings": {
-                    "iv": {
-                        "param": "iv"
-                    },
-                    "name": {
-                        "param": "name"
-                    },
-                    "latitude": {
-                        "param": "coords"
-                    },
-                    "longitude": {
-                        "param": "coords"
-                    },
-                    "expiration": {
-                        "param": "until",
-                        "format": "utc"
-                    }
-                }
-            }, {
-                "url": "http://localhost:5000/raw_data",
-                "key": "pokemons",
-                "mappings": {
-                    "id": {
-                        "param": "pokemon_id"
-                    },
-                    "name": {
-                        "param": "pokemon_name"
-                    },
-                    "latitude": {
-                        "param": "latitude"
-                    },
-                    "longitude": {
-                        "param": "longitude"
-                    },
-                    "expiration": {
-                        "param": "disappear_time",
-                        "format": "milliseconds"
-                    }
-                }
-            }, {
-                "url": "https://pokewatchers.com/grab/",
-                "mappings": {
-                    "iv": {
-                        "param": "iv"
-                    },
-                    "id": {
-                        "param": "pid"
-                    },
-                    "name": {
-                        "param": "pokemon"
-                    },
-                    "latitude": {
-                        "param": "cords"
-                    },
-                    "longitude": {
-                        "param": "cords"
-                    },
-                    "expiration": {
-                        "param": "timeend",
-                        "format": "milliseconds"
-                    }
-                }
-            }],
-            "catch": {
-                "==========Legendaries==========": 0,
-                "Aerodactyl": 1000,
-                "Snorlax": 1000,
-                "Articuno": 1000,
-                "Zapdos": 1000,
-                "Moltres": 1000,
-                "Dratini": 1000,
-                "Dragonair": 1000,
-                "Dragonite": 1000,
-                "Mewtwo": 1000,
-                "Mew": 1000,
-
-                "==========Region Locked==========": 0,
-                "Farfetch'd": 1000,
-                "Kangaskhan": 1000,
-                "Mr. Mime": 1000,
-                "Tauros": 1000,
-
-                "==========Very Rare==========": 0,
-                "Lapras": 900,
-                "Electabuzz": 900,
-                "Magmar": 900,
-                "Ditto": 900,
-
-                "==========Starters==========": 0,
-                "~Bulbasaur": 400,
-                "~Ivysaur": 600,
-                "Venusaur": 1000,
-
-                "Charmander": 400,
-                "Charmeleon": 600,
-                "Charizard": 1000,
-
-                "~Squirtle": 400,
-                "~Wartortle": 600,
-                "Blastoise": 1000,
-
-                "Pikachu": 600,
-                "Raichu": 1000,
-
-                "==========Semi Rare==========": 0,
-                "Porygon": 200,
-                "~Scyther": 200,
-                "Jynx": 200,
-
-                "==========Uncommon==========": 0,
-
-                "Omanyte": 150,
-                "Omastar": 500,
-
-                "~Seel": 300,
-                "~Dewgong": 500,
-
-                "~Grimer": 200,
-                "~Muk": 500,
-
-                "~Shellder": 200,
-                "~Cloyster": 500,
-
-                "~Gastly": 200,
-                "~Haunter": 500,
-                "~Gengar": 1000,
-
-                "~Onix": 600,
-
-                "~Drowzee": 600,
-
-                "~Hypno": 600,
-
-                "Vulpix": 200,
-                "Ninetales": 600,
-
-                "~Paras": 100,
-                "~Parasect": 500,
-
-                "~Growlithe": 200,
-                "Arcanine": 700,
-
-                "~Tentacool": 200,
-                "Tentacruel": 500,
-
-                "~Mankey": 150,
-                "Primeape": 500,
-
-                "~Clefairy": 150,
-                "~Clefable": 500,
-
-                "~Jigglypuff": 150,
-                "Wigglytuff": 500,
-
-                "~Venonat": 100,
-                "Venomoth": 500,
-
-                "~Diglett": 200,
-                "Dugtrio": 500,
-
-                "~Meowth": 250,
-                "Persian": 500,
-
-                "~Psyduck": 150,
-                "~Golduck": 500,
-
-                "~Geodude": 100,
-                "~Graveler": 500,
-                "Golem": 800,
-
-                "~Eevee": 200,
-                "Vaporeon": 800,
-                "Jolteon": 800,
-                "Flareon": 800,
-
-                "~Kabuto": 150,
-                "Kabutops": 500,
-
-                "~Magikarp": 150,
-                "Gyarados": 800,
-
-                "~Pinsir": 150,
-
-                "~Ponyta": 200,
-                "Rapidash": 500,
-
-                "~Slowpoke": 200,
-                "~Slowbro": 500,
-
-                "~Magnemite": 250,
-                "~Magneton": 500,
-
-                "~Krabby": 100,
-                "~Kingler": 500,
-
-                "~Voltorb": 200,
-                "~Electrode": 500,
-
-                "~Exeggcute": 250,
-                "Exeggcutor": 500,
-
-                "~Cubone": 300,
-                "Marowak": 800,
-
-                "Hitmonlee": 400,
-
-                "Hitmonchan": 400,
-
-                "Lickitung": 500,
-
-                "~Koffing": 200,
-                "Weezing": 500,
-
-                "~Rhyhorn": 200,
-                "Rhydon": 500,
-
-                "Chansey": 800,
-
-                "~Tangela": 300,
-
-                "~Horsea": 200,
-                "~Seadra": 600,
-
-                "~Goldeen": 150,
-                "~Seaking": 500,
-
-                "~Staryu": 200,
-                "~Starmie": 800,
-
-
-                "==========T1 Evolvers==========": 0,
-                "~Caterpie": 10,
-                "~Metapod": 10,
-                "Butterfree": 500,
-
-                "~Weedle": 10,
-                "~Kakuna": 10,
-                "Beedrill": 500,
-
-                "~Pidgey": 10,
-                "~Pidgeotto": 10,
-                "~Pidgeot": 300,
-
-                "==========T2 Evolvers==========": 0,
-                "~Nidoran F": 10,
-                "~Nidorina": 10,
-                "~Nidoqueen": 10,
-
-                "~Nidoran M": 10,
-                "~Nidorino": 10,
-                "~Nidoking": 10,
-
-                "~Oddish": 100,
-                "~Gloom": 200,
-                "Vileplume": 600,
-
-                "~Poliwag": 200,
-                "~Poliwhirl": 400,
-                "~Poliwrath": 800,
-
-                "~Abra": 300,
-                "Kadabra": 600,
-                "Alakazam": 800,
-
-                "~Machop": 150,
-                "Machoke": 400,
-                "Machamp": 800,
-
-                "~Bellsprout": 100,
-                "~Weepinbell": 400,
-                "Victreebel": 800,
-
-                "==========Trash==========": 0,
-
-                "~Rattata": 10,
-                "~Raticate": 10,
-
-                "~Spearow": 10,
-                "~Fearow": 10,
-
-                "~Ekans": 10,
-                "~Arbok": 10,
-
-                "~Sandshrew": 10,
-                "~Sandslash": 10,
-
-                "~Zubat": 10,
-                "~Golbat": 10,
-
-                "~Doduo": 10,
-                "~Dodrio": 10
-            }
-        }
-    }, {
         "type": "TelegramTask",
         "config": {
             "enabled": true,
@@ -377,7 +72,7 @@
             "enabled": true,
             "buddy_list": "Pikachu, Dragonite, Dragonair, Dratini, Lapras, Snorlax",
             "best_in_family": true,
-            "candy_limit": 120,
+            "candy_limit": 0,
             "force_first_change": false,
             "buddy_change_wait_min": 3,
             "buddy_change_wait_max": 5,
@@ -391,16 +86,16 @@
             "breakable_longer_eggs_first": false,
             "min_interval": 120,
             "infinite": [2, 5, 10],
-            "breakable": [10, 5, 2]
+            "breakable": [10, 5]
         }
     }, {
         "type": "UpdateLiveStats",
         "config": {
             "enabled": true,
-            "min_interval": 60,
+            "min_interval": 120,
             "stats": ["username", "level_stats", "uptime", "stardust_earned", "xp_earned", "xp_per_hour", "stops_visited"],
             "terminal_log": true,
-            "terminal_title": false
+            "terminal_title": true
         }
     }, {
         "type": "UpdateLiveInventory",
@@ -414,15 +109,15 @@
         "type": "ShowBestPokemon",
         "config": {
             "enabled": true,
-            "min_interval": 60,
-            "amount": 5,
+            "min_interval": 120,
+            "amount": 3,
             "order_by": "cp",
             "info_to_show": ["cp", "iv_pct"]
         }
     }, {
         "type": "TransferPokemon",
         "config": {
-            "enabled": true,
+            "enabled": false,
             "min_free_slot": 5,
             "transfer_wait_min": 3,
             "transfer_wait_max": 5
@@ -431,7 +126,7 @@
         "type": "NicknamePokemon",
         "config": {
             "enabled": true,
-            "nickname_above_iv": 0.9,
+            "nickname_above_iv": 0.7,
             "nickname_template": "{name}_{iv_pct2}",
             "nickname_wait_min": 3,
             "nickname_wait_max": 5,
@@ -440,13 +135,13 @@
     }, {
         "type": "EvolvePokemon",
         "config": {
-            "enabled": true,
-            "evolve_list": "Caterpie, Weedle, Pidgey, Bulbasaur, Charmander, Squirtle, Rattata, Spearow, Ekans, Nidoran F, Nidoran M, Poliwag, Bellsprout, Magnemite, Doduo, Gastly, Shellder",
+            "enabled": false,
+            "evolve_list": "all",
             "donot_evolve_list": "none",
-            "first_evolve_by": "iv",
-            "evolve_above_cp": 0,
+            "first_evolve_by": "cp",
+            "evolve_above_cp": 500,
             "evolve_above_iv": 0.8,
-            "logic": "and",
+            "logic": "or",
             "min_evolve_speed": 25,
             "max_evolve_speed": 30,
             "min_pokemon_to_be_evolved": 1,
@@ -456,12 +151,7 @@
         "type": "UseIncense",
         "config": {
             "use_incense": false,
-            "use_order": [
-                "ordinary",
-                "spicy",
-                "cool",
-                "floral"
-            ]
+            "use_order": ["ordinary", "spicy", "cool", "floral"]
         }
     }, {
         "type": "RecycleItems",
@@ -474,22 +164,22 @@
             "max_revives_keep": 70,
             "item_filter": {
                 "Pokeball": {
-                    "keep": 30
+                    "keep": 100
                 },
                 "Potion": {
                     "keep": 10
                 },
                 "Super Potion": {
-                    "keep": 10
+                    "keep": 20
                 },
                 "Hyper Potion": {
-                    "keep": 20
+                    "keep": 30
                 },
                 "Revive": {
                     "keep": 30
                 },
                 "Razz Berry": {
-                    "keep": 50
+                    "keep": 100
                 }
             },
             "recycle_wait_min": 3,
@@ -497,6 +187,247 @@
             "recycle_force": true,
             "recycle_force_min": "00:01:00",
             "recycle_force_max": "00:05:00"
+        }
+    }, {
+        "type": "Sniper",
+        "config": {
+            "enabled": true,
+            "mode": "social",
+            "bullets": 1,
+            "homing_shots": true,
+            "special_iv": 100,
+            "order": ["missing", "vip", "priority"],
+            "sources": [{
+                "enabled": false,
+                "url": "http://localhost:5000/raw_data",
+                "key": "pokemons",
+                "mappings": {
+                    "id": {
+                        "param": "pokemon_id"
+                    },
+                    "name": {
+                        "param": "pokemon_name"
+                    },
+                    "latitude": {
+                        "param": "latitude"
+                    },
+                    "longitude": {
+                        "param": "longitude"
+                    },
+                    "expiration": {
+                        "param": "disappear_time",
+                        "format": "milliseconds"
+                    }
+                }
+            }, {
+                "enabled": false,
+                "url": "https://pokewatchers.com/grab/",
+                "mappings": {
+                    "iv": {
+                        "param": "iv"
+                    },
+                    "id": {
+                        "param": "pid"
+                    },
+                    "name": {
+                        "param": "pokemon"
+                    },
+                    "latitude": {
+                        "param": "cords"
+                    },
+                    "longitude": {
+                        "param": "cords"
+                    },
+                    "expiration": {
+                        "param": "timeend",
+                        "format": "milliseconds"
+                    }
+                }
+            }, {
+                "enabled": false,
+                "url": "http://pokesnipers.com/api/v1/pokemon.json",
+                "key": "results",
+                "mappings": {
+                    "iv": {
+                        "param": "iv"
+                    },
+                    "name": {
+                        "param": "name"
+                    },
+                    "latitude": {
+                        "param": "coords"
+                    },
+                    "longitude": {
+                        "param": "coords"
+                    },
+                    "expiration": {
+                        "param": "until",
+                        "format": "utc"
+                    }
+                }
+            }],
+            "catch": {
+                "==========Legendaries==========": 0,
+                "Aerodactyl": 1000,
+                "Snorlax": 1000,
+                "Articuno": 1000,
+                "Zapdos": 1000,
+                "Moltres": 1000,
+                "Dratini": 1000,
+                "Dragonair": 1000,
+                "Dragonite": 1000,
+                "Mewtwo": 1000,
+                "Mew": 1000,
+                "==========Region Locked==========": 0,
+                "Farfetch'd": 1000,
+                "Kangaskhan": 1000,
+                "Mr. Mime": 1000,
+                "Tauros": 1000,
+                "==========Very Rare==========": 0,
+                "Lapras": 900,
+                "Electabuzz": 900,
+                "~Magmar": 900,
+                "Ditto": 900,
+                "==========Starters==========": 0,
+                "~Bulbasaur": 400,
+                "~Ivysaur": 600,
+                "Venusaur": 1000,
+                "Charmander": 400,
+                "Charmeleon": 600,
+                "Charizard": 1000,
+                "~Squirtle": 400,
+                "~Wartortle": 600,
+                "Blastoise": 1000,
+                "Pikachu": 1000,
+                "Raichu": 1000,
+                "==========Semi Rare==========": 0,
+                "Porygon": 200,
+                "~Scyther": 200,
+                "Jynx": 200,
+                "==========Uncommon==========": 0,
+                "Omanyte": 150,
+                "Omastar": 500,
+                "~Seel": 300,
+                "~Dewgong": 500,
+                "~Grimer": 200,
+                "~Muk": 500,
+                "~Shellder": 200,
+                "~Cloyster": 500,
+                "~Gastly": 200,
+                "~Haunter": 500,
+                "~Gengar": 1000,
+                "~Onix": 600,
+                "~Drowzee": 600,
+                "~Hypno": 600,
+                "Vulpix": 200,
+                "Ninetales": 600,
+                "~Paras": 100,
+                "~Parasect": 500,
+                "~Growlithe": 200,
+                "Arcanine": 700,
+                "~Tentacool": 200,
+                "Tentacruel": 500,
+                "~Mankey": 150,
+                "Primeape": 500,
+                "~Clefairy": 150,
+                "~Clefable": 500,
+                "~Jigglypuff": 150,
+                "Wigglytuff": 500,
+                "~Venonat": 100,
+                "Venomoth": 500,
+                "~Diglett": 200,
+                "Dugtrio": 500,
+                "~Meowth": 250,
+                "Persian": 500,
+                "~Psyduck": 150,
+                "~Golduck": 500,
+                "~Geodude": 100,
+                "~Graveler": 500,
+                "Golem": 800,
+                "~Eevee": 200,
+                "Vaporeon": 800,
+                "Jolteon": 800,
+                "Flareon": 800,
+                "~Kabuto": 150,
+                "Kabutops": 500,
+                "~Magikarp": 150,
+                "Gyarados": 800,
+                "~Pinsir": 150,
+                "~Ponyta": 200,
+                "Rapidash": 500,
+                "~Slowpoke": 200,
+                "~Slowbro": 500,
+                "~Magnemite": 250,
+                "~Magneton": 500,
+                "~Krabby": 100,
+                "~Kingler": 500,
+                "~Voltorb": 200,
+                "~Electrode": 500,
+                "~Exeggcute": 250,
+                "Exeggcutor": 500,
+                "~Cubone": 300,
+                "Marowak": 800,
+                "Hitmonlee": 400,
+                "Hitmonchan": 400,
+                "Lickitung": 500,
+                "~Koffing": 200,
+                "Weezing": 500,
+                "~Rhyhorn": 200,
+                "Rhydon": 500,
+                "Chansey": 800,
+                "~Tangela": 300,
+                "~Horsea": 200,
+                "~Seadra": 600,
+                "~Goldeen": 150,
+                "~Seaking": 500,
+                "~Staryu": 200,
+                "~Starmie": 800,
+                "==========T1 Evolvers==========": 0,
+                "~Caterpie": 10,
+                "~Metapod": 10,
+                "Butterfree": 500,
+                "~Weedle": 10,
+                "~Kakuna": 10,
+                "Beedrill": 500,
+                "~Pidgey": 10,
+                "~Pidgeotto": 10,
+                "~Pidgeot": 300,
+                "==========T2 Evolvers==========": 0,
+                "~Nidoran F": 10,
+                "~Nidorina": 10,
+                "~Nidoqueen": 10,
+                "~Nidoran M": 10,
+                "~Nidorino": 10,
+                "~Nidoking": 10,
+                "~Oddish": 100,
+                "~Gloom": 200,
+                "Vileplume": 600,
+                "~Poliwag": 200,
+                "~Poliwhirl": 400,
+                "~Poliwrath": 800,
+                "~Abra": 300,
+                "~Kadabra": 600,
+                "Alakazam": 800,
+                "~Machop": 150,
+                "~Machoke": 400,
+                "Machamp": 800,
+                "~Bellsprout": 100,
+                "~Weepinbell": 400,
+                "Victreebel": 800,
+                "==========Trash==========": 0,
+                "~Rattata": 10,
+                "~Raticate": 10,
+                "~Spearow": 10,
+                "~Fearow": 10,
+                "~Ekans": 10,
+                "~Arbok": 10,
+                "~Sandshrew": 10,
+                "~Sandslash": 10,
+                "~Zubat": 10,
+                "~Golbat": 10,
+                "~Doduo": 10,
+                "~Dodrio": 10
+            }
         }
     }, {
         "type": "CatchPokemon",
@@ -509,7 +440,7 @@
             "berry_threshold": 0.35,
             "vip_berry_threshold": 0.9,
             "treat_unseen_as_vip": true,
-            "daily_catch_limit": 1000,
+            "daily_catch_limit": 800,
             "vanish_settings": {
                 "consecutive_vanish_limit": 10,
                 "rest_duration_min": "02:00:00",
@@ -520,8 +451,8 @@
                 "great_rate": 0.5,
                 "nice_rate": 0.2,
                 "normal_rate": 0.1,
-                "spin_success_rate": 0.8,
-                "hit_rate": 0.9
+                "spin_success_rate": 0.75,
+                "hit_rate": 0.75
             },
             "catch_simulation": {
                 "flee_count": 3,
@@ -565,76 +496,25 @@
             "diameter": 4,
             "step_size": 70
         }
-    }, {
-        "type": "PokemonOptimizer",
-        "config": {
-            "enabled": false,
-            "min_slots_left": 5,
-            "action_wait_min": 3,
-            "action_wait_max": 5,
-            "transfer": true,
-            "evolve": true,
-            "evolve_to_final": true,
-            "evolve_time": 25,
-            "evolve_for_xp": false,
-            "evolve_only_with_lucky_egg": false,
-            "evolve_count_for_lucky_egg": 80,
-            "may_use_lucky_egg": false,
-            "upgrade": false,
-            "upgrade_level": 30,
-            "groups": {
-                "Dragon": ["Dragonite", "Dragonair", "Dratini"]
-            },
-            "rules": [{
-                "mode": "by_pokemon",
-                "names": ["Dragon"],
-                "top": 3,
-                "sort": ["iv", "ncp"],
-                "evolve": {
-                    "iv": 0.9,
-                    "ncp": 0.9
-                }
-            }, {
-                "mode": "by_family",
-                "top": 1,
-                "sort": ["iv"],
-                "evolve": {
-                    "iv": 0.9
-                }
-            }, {
-                "mode": "by_family",
-                "top": 1,
-                "sort": ["ncp"],
-                "evolve": {
-                    "ncp": 0.9
-                }
-            }, {
-                "mode": "by_family",
-                "top": 1,
-                "sort": ["cp"],
-                "evolve": false
-            }]
-        }
     }],
     "map_object_cache_time": 5,
     "forts": {
         "avoid_circles": false,
         "max_circle_size": 50,
-        "cache_recent_forts": false
+        "cache_recent_forts": true
     },
     "pokemon_bag": {
         "show_at_start": true,
         "show_count": true,
         "show_candies": true,
-        "pokemon_info": ["cp", "iv_pct"]
+        "pokemon_info": ["cp", "iv_pct", "level"]
     },
     "walk_max": 4.16,
     "walk_min": 2.16,
     "alt_min": 500,
     "alt_max": 1000,
-
     "sleep_schedule": {
-        "enabled": true,
+        "enabled": false,
         "enable_reminder": false,
         "reminder_interval": 600,
         "entries": [{
@@ -657,7 +537,7 @@
             "duration": "1:00",
             "time_random_offset": "00:15",
             "duration_random_offset": "00:15",
-            "wake_up_at_location": "25.136749805291696, 121.50361105799675"
+            "wake_up_at_location": "25.001628759961704, 121.5123724937439"
         }, {
             "enabled": true,
             "time": "21:00",
@@ -667,7 +547,6 @@
             "wake_up_at_location": "25.001628759961704, 121.5123724937439"
         }]
     },
-
     "gps_default_altitude": 8.0,
     "replicate_gps_xy_noise": false,
     "replicate_gps_z_noise": false,
@@ -677,9 +556,9 @@
     "test": false,
     "walker_limit_output": false,
     "health_record": true,
-    "location_cache": true,
+    "location_cache": false,
     "distance_unit": "km",
-    "reconnecting_timeout": 15,
+    "reconnecting_timeout": 5,
     "logging": {
         "color": true,
         "show_datetime": true,
@@ -695,633 +574,290 @@
         }
     },
     "release": {
-        "any": {
-            "release_below_cp": 0,
-            "release_below_iv": 0,
-            "logic": "or"
-        },
-        "Bulbasaur": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Ivysaur": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Venusaur": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Charmander": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Charmeleon": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Charizard": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Squirtle": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Wartortle": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Blastoise": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Caterpie": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Metapod": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
+        "any": { "keep_best_ivcp": 1 },
+        "Bulbasaur": { "keep_best_ivcp": 1 },
+        "Ivysaur": { "keep_best_ivcp": 1 },
+        "Venusaur": { "keep_best_cp": 5 },
+        "Charmander": { "keep_best_ivcp": 1 },
+        "Charmeleon": { "keep_best_ivcp": 1 },
+        "Charizard": { "keep_best_cp": 5 },
+        "Squirtle": { "keep_best_ivcp": 1 },
+        "Wartortle": { "keep_best_ivcp": 1 },
+        "Blastoise": { "keep_best_cp": 5 },
+        "Caterpie": { "keep_best_ivcp": 1 },
+        "Metapod": { "keep_best_ivcp": 1 },
         "Butterfree": {
             "release_below_cp": 1000,
-            "release_below_iv": 60,
+            "release_below_iv": 90,
             "logic": "and"
         },
-        "Weedle": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Kakuna": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
+        "Weedle": { "keep_best_ivcp": 1 },
+        "Kakuna": { "keep_best_ivcp": 1 },
         "Beedrill": {
             "release_below_cp": 1000,
-            "release_below_iv": 60,
+            "release_below_iv": 90,
             "logic": "and"
         },
-        "Pidgey": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Pidgeotto": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
+        "Pidgey": { "keep_best_ivcp": 1 },
+        "Pidgeotto": { "keep_best_ivcp": 1 },
         "Pidgeot": {
             "release_below_cp": 1000,
-            "release_below_iv": 60,
+            "release_below_iv": 90,
             "logic": "and"
         },
-        "Rattata": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
+        "Rattata": { "keep_best_ivcp": 1 },
         "Raticate": {
             "release_below_cp": 1000,
             "release_below_iv": 90,
             "logic": "and"
         },
-        "Spearow": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
+        "Spearow": { "keep_best_ivcp": 1 },
         "Fearow": {
-            "release_below_cp": 1000,
-            "release_below_iv": 80,
-            "logic": "and"
-        },
-        "Ekans": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Arbok": {
-            "release_below_cp": 1000,
-            "release_below_iv": 80,
-            "logic": "and"
-        },
-        "Pikachu": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Raichu": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Sandshrew": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Sandslash": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Nidoran F": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Nidorina": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Nidoqueen": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Nidoran M": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Nidorino": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Nidoking": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Clefairy": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Clefable": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Vulpix": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Ninetales": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Jigglypuff": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Wigglytuff": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Zubat": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Golbat": {
-            "release_below_cp": 1000,
-            "release_below_iv": 80,
-            "logic": "and"
-        },
-        "Oddish": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Gloom": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Vileplume": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Paras": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Parasect": {
-            "keep_best_custom": "cp, iv",
-            "amount": 5
-        },
-        "Venonat": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Venomoth": {
-            "keep_best_custom": "cp, iv",
-            "amount": 5
-        },
-        "Diglett": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Dugtrio": {
-            "keep_best_custom": "cp, iv",
-            "amount": 5
-        },
-        "Meowth": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Persian": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Psyduck": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Golduck": {
-            "keep_best_custom": "cp, iv",
-            "amount": 5
-        },
-        "Mankey": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Primeape": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Growlithe": {
-            "keep_best_custom": "iv, cp",
-            "amount": 1
-        },
-        "Arcanine": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Poliwag": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Poliwhirl": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Poliwrath": {
-            "release_below_cp": 1000,
-            "release_below_iv": 80,
-            "logic": "and"
-        },
-        "Abra": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Kadabra": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Alakazam": {
-            "keep_best_custom": "cp, iv",
-            "amount": 5
-        },
-        "Machop": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Machoke": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Machamp": {
-            "keep_best_custom": "cp, iv",
-            "amount": 5
-        },
-        "Bellsprout": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Weepinbell": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Victreebel": {
-            "release_below_cp": 1000,
-            "release_below_iv": 60,
-            "logic": "and"
-        },
-        "Tentacool": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Tentacruel": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Geodude": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Graveler": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Golem": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Ponyta": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Rapidash": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Slowpoke": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Slowbro": {
-            "keep_best_custom": "cp, iv",
-            "amount": 5
-        },
-        "Magnemite": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Magneton": {
-            "release_below_cp": 1100,
-            "release_below_iv": 80,
-            "logic": "and"
-        },
-        "Farfetch'd": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Doduo": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Dodrio": {
             "release_below_cp": 1000,
             "release_below_iv": 90,
             "logic": "and"
         },
-        "Seel": {
-            "keep_best_custom": "iv",
-            "amount": 1
+        "Ekans": { "keep_best_ivcp": 1 },
+        "Arbok": {
+            "release_below_cp": 1000,
+            "release_below_iv": 90,
+            "logic": "and"
         },
-        "Dewgong": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
+        "Pikachu": { "keep_best_ivcp": 1 },
+        "Raichu": { "keep_best_cp": 5 },
+        "Sandshrew": { "keep_best_ivcp": 1 },
+        "Sandslash": { "keep_best_cp": 5 },
+        "Nidoran F": { "keep_best_ivcp": 1 },
+        "Nidorina": { "keep_best_ivcp": 1 },
+        "Nidoqueen": { "keep_best_cp": 5 },
+        "Nidoran M": { "keep_best_ivcp": 1 },
+        "Nidorino": { "keep_best_ivcp": 1 },
+        "Nidoking": { "keep_best_cp": 5 },
+        "Clefairy": { "keep_best_ivcp": 1 },
+        "Clefable": { "keep_best_cp": 5 },
+        "Vulpix": { "keep_best_ivcp": 1 },
+        "Ninetales": { "keep_best_cp": 5 },
+        "Jigglypuff": { "keep_best_ivcp": 1 },
+        "Wigglytuff": { "keep_best_cp": 5 },
+        "Zubat": { "keep_best_ivcp": 1 },
+        "Golbat": {
+            "release_below_cp": 1000,
+            "release_below_iv": 90,
+            "logic": "and"
         },
+        "Oddish": { "keep_best_ivcp": 1 },
+        "Gloom": { "keep_best_ivcp": 1 },
+        "Vileplume": { "keep_best_cp": 5 },
+        "Paras": { "keep_best_ivcp": 1 },
+        "Parasect": {
+            "release_below_cp": 1000,
+            "release_below_iv": 90,
+            "logic": "and"
+        },
+        "Venonat": { "keep_best_ivcp": 1 },
+        "Venomoth": {
+            "release_below_cp": 1000,
+            "release_below_iv": 90,
+            "logic": "and"
+        },
+        "Diglett": { "keep_best_ivcp": 1 },
+        "Dugtrio": {
+            "release_below_cp": 1000,
+            "release_below_iv": 90,
+            "logic": "and"
+        },
+        "Meowth": { "keep_best_ivcp": 1 },
+        "Persian": {
+            "release_below_cp": 1000,
+            "release_below_iv": 90,
+            "logic": "and"
+        },
+        "Psyduck": { "keep_best_ivcp": 1 },
+        "Golduck": {
+            "release_below_cp": 1000,
+            "release_below_iv": 90,
+            "logic": "and"
+        },
+        "Mankey": { "keep_best_ivcp": 1 },
+        "Primeape": { "keep_best_cp": 5 },
+        "Growlithe": { "keep_best_ivcp": 1 },
+        "Arcanine": { "keep_best_cp": 5 },
+        "Poliwag": { "keep_best_ivcp": 1 },
+        "Poliwhirl": { "keep_best_ivcp": 1 },
+        "Poliwrath": {
+            "release_below_cp": 1000,
+            "release_below_iv": 90,
+            "logic": "and"
+        },
+        "Abra": { "keep_best_ivcp": 1 },
+        "Kadabra": { "keep_best_ivcp": 1 },
+        "Alakazam": {
+            "release_below_cp": 1000,
+            "release_below_iv": 90,
+            "logic": "and"
+        },
+        "Machop": { "keep_best_ivcp": 1 },
+        "Machoke": { "keep_best_ivcp": 1 },
+        "Machamp": {
+            "release_below_cp": 1000,
+            "release_below_iv": 90,
+            "logic": "and"
+        },
+        "Bellsprout": { "keep_best_ivcp": 1 },
+        "Weepinbell": { "keep_best_ivcp": 1 },
+        "Victreebel": {
+            "release_below_cp": 1000,
+            "release_below_iv": 90,
+            "logic": "and"
+        },
+        "Tentacool": { "keep_best_ivcp": 1 },
+        "Tentacruel": {
+            "release_below_cp": 1000,
+            "release_below_iv": 90,
+            "logic": "and"
+        },
+        "Geodude": { "keep_best_ivcp": 1 },
+        "Graveler": { "keep_best_ivcp": 1 },
+        "Golem": { "keep_best_cp": 5 },
+        "Ponyta": { "keep_best_ivcp": 1 },
+        "Rapidash": { "keep_best_cp": 5 },
+        "Slowpoke": { "keep_best_ivcp": 1 },
+        "Slowbro": {
+            "release_below_cp": 1100,
+            "release_below_iv": 90,
+            "logic": "and"
+        },
+        "Magnemite": { "keep_best_ivcp": 1 },
+        "Magneton": {
+            "release_below_cp": 1100,
+            "release_below_iv": 90,
+            "logic": "and"
+        },
+        "Farfetch'd": { "keep_best_cp": 5 },
+        "Doduo": { "keep_best_ivcp": 1 },
+        "Dodrio": {
+            "release_below_cp": 1100,
+            "release_below_iv": 90,
+            "logic": "and"
+        },
+        "Seel": { "keep_best_ivcp": 1 },
+        "Dewgong": { "keep_best_cp": 5 },
         "Grimer": {
             "release_below_cp": 1000,
-            "release_below_iv": 60,
+            "release_below_iv": 80,
             "logic": "and"
         },
-        "Muk": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Shellder": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
+        "Muk": { "keep_best_cp": 5 },
+        "Shellder": { "keep_best_ivcp": 1 },
         "Cloyster": {
             "release_below_cp": 1000,
-            "release_below_iv": 60,
+            "release_below_iv": 80,
             "logic": "and"
         },
-        "Gastly": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Haunter": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Gengar": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Onix": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Drowzee": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Hypno": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Krabby": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
+        "Gastly": { "keep_best_ivcp": 1 },
+        "Haunter": { "keep_best_ivcp": 5 },
+        "Gengar": { "keep_best_cp": 5 },
+        "Onix": { "keep_best_cp": 5 },
+        "Drowzee": { "keep_best_ivcp": 5 },
+        "Hypno": { "keep_best_cp": 5 },
+        "Krabby": { "keep_best_ivcp": 1 },
         "Kingler": {
             "release_below_cp": 1000,
-            "release_below_iv": 60,
+            "release_below_iv": 90,
             "logic": "and"
         },
-        "Voltorb": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
+        "Voltorb": { "keep_best_ivcp": 1 },
         "Electrode": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
+            "release_below_cp": 1000,
+            "release_below_iv": 90,
+            "logic": "and"
         },
-        "Exeggcute": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
+        "Exeggcute": { "keep_best_ivcp": 1 },
         "Exeggutor": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
+            "release_below_cp": 1000,
+            "release_below_iv": 90,
+            "logic": "and"
         },
-        "Cubone": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Marowak": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Hitmonlee": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Hitmonchan": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Lickitung": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Koffing": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Weezing": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Rhyhorn": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
+        "Cubone": { "keep_best_ivcp": 5 },
+        "Marowak": { "keep_best_cp": 5 },
+        "Hitmonlee": { "keep_best_ivcp": 5 },
+        "Hitmonchan": { "keep_best_cp": 5 },
+        "Lickitung": { "keep_best_cp": 5 },
+        "Koffing": { "keep_best_ivcp": 5 },
+        "Weezing": { "keep_best_cp": 5 },
+        "Rhyhorn": { "keep_best_ivcp": 1 },
         "Rhydon": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
+            "release_below_cp": 1000,
+            "release_below_iv": 90,
+            "logic": "and"
         },
-        "Chansey": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
+        "Chansey": { "keep_best_cp": 5 },
         "Tangela": {
             "release_below_cp": 1000,
-            "release_below_iv": 60,
+            "release_below_iv": 90,
             "logic": "and"
         },
-        "Kangaskhan": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Horsea": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
+        "Kangaskhan": { "keep_best_cp": 5 },
+        "Horsea": { "keep_best_ivcp": 1 },
         "Seadra": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
+            "release_below_cp": 1000,
+            "release_below_iv": 90,
+            "logic": "and"
         },
-        "Goldeen": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
+        "Goldeen": { "keep_best_ivcp": 1 },
         "Seaking": {
             "release_below_cp": 1000,
-            "release_below_iv": 60,
+            "release_below_iv": 90,
             "logic": "and"
         },
-        "Staryu": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
+        "Staryu": { "keep_best_ivcp": 1 },
         "Starmie": {
             "release_below_cp": 1000,
-            "release_below_iv": 60,
+            "release_below_iv": 90,
             "logic": "and"
         },
-        "Mr. Mime": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
+        "Mr. Mime": { "keep_best_cp": 5 },
         "Scyther": {
             "release_below_cp": 1000,
-            "release_below_iv": 60,
+            "release_below_iv": 90,
             "logic": "and"
         },
-        "Jynx": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Electabuzz": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
+        "Jynx": { "keep_best_cp": 5 },
+        "Electabuzz": { "keep_best_cp": 5 },
         "Magmar": {
-            "keep_best_custom": "cp, iv",
-            "amount": 5
+            "release_below_cp": 1000,
+            "release_below_iv": 90,
+            "logic": "and"
         },
         "Pinsir": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
+            "release_below_cp": 1200,
+            "release_below_iv": 90,
+            "logic": "and"
         },
-        "Tauros": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Magikarp": {
-            "keep_best_custom": "iv",
-            "amount": 1
-        },
-        "Gyarados": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Lapras": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Ditto": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Eevee": {
-            "keep_best_custom": "iv",
-            "amount": 5
-        },
-        "Vaporeon": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Jolteon": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Flareon": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Porygon": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Omanyte": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Omastar": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Kabuto": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Kabutops": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Aerodactyl": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Snorlax": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Articuno": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Zapdos": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Moltres": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Dratini": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Dragonair": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Dragonite": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Mewtwo": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        },
-        "Mew": {
-            "keep_best_custom": "cp, iv",
-            "amount": 10
-        }
+        "Tauros": { "keep_best_cp": 5 },
+        "Magikarp": { "keep_best_ivcp": 1 },
+        "Gyarados": { "never_release": true },
+        "Lapras": { "never_release": true },
+        "Ditto": { "keep_best_cp": 5 },
+        "Eevee": { "keep_best_ivcp": 5 },
+        "Vaporeon": { "never_release": true },
+        "Jolteon": { "never_release": true },
+        "Flareon": { "never_release": true },
+        "Porygon": { "never_release": true },
+        "Omanyte": { "keep_best_ivcp": 5 },
+        "Omastar": { "keep_best_cp": 5 },
+        "Kabuto": { "keep_best_cp": 5 },
+        "Kabutops": { "keep_best_cp": 5 },
+        "Aerodactyl": { "keep_best_cp": 5 },
+        "Snorlax": { "keep_best_cp": 5 },
+        "Articuno": { "keep_best_cp": 5 },
+        "Zapdos": { "keep_best_cp": 5 },
+        "Moltres": { "keep_best_cp": 5 },
+        "Dratini": { "keep_best_ivcp": 5 },
+        "Dragonair": { "keep_best_ivcp": 5 },
+        "Dragonite": { "keep_best_cp": 5 },
+        "Mewtwo": { "never_release": true },
+        "Mew": { "never_release": true }
     },
     "vips": {
         "any": {
@@ -1329,21 +865,15 @@
             "catch_above_iv": 0.9,
             "logic": "or"
         },
-        "Lapras": {},
-        "Moltres": {},
-        "Zapdos": {},
-        "Articuno": {},
-        "Mewtwo": {},
+        "Dratini": {},
+        "Dragonair": {},
         "Dragonite": {},
-        "Snorlax": {},
-        "Mew": {},
-        "Arcanine": {},
         "Vaporeon": {},
-        "Gyarados": {},
-        "Exeggutor": {},
-        "Muk": {},
-        "Weezing": {},
-        "Flareon": {}
+        "Jolteon": {},
+        "Flareon": {},
+        "Lapras": {},
+        "Mewtwo": {},
+        "Mew": {}
     },
     "websocket": {
         "start_embedded_server": true,
