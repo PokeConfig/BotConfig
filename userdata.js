@@ -1,12 +1,12 @@
 var userInfo = {
    users: [{
        enable: true,
-       username: "",
+       username: "{0}",
        socketAddress: "0.0.0.0:4000"
    }],
    userZoom: false,
    userPath: true,
    zoom: 16,
    userFollow: true,
-   gMapsAPIKey: ""
+   gMapsAPIKey: "{1}"
 };
