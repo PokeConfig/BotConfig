@@ -95,7 +95,7 @@
             "min_interval": 120,
             "stats": ["username", "level_stats", "uptime", "stardust_earned", "xp_earned", "xp_per_hour", "stops_visited"],
             "terminal_log": true,
-            "terminal_title": true
+            "terminal_title": false
         }
     }, {
         "type": "UpdateLiveInventory",
@@ -117,7 +117,7 @@
     }, {
         "type": "TransferPokemon",
         "config": {
-            "enabled": false,
+            "enabled": true,
             "min_free_slot": 5,
             "transfer_wait_min": 3,
             "transfer_wait_max": 5
