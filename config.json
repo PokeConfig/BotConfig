@@ -7,6 +7,75 @@
         "tasks_only": false
     },
     "tasks": [{
+        "type": "PokemonOptimizer",
+        "config": {
+            "enabled": false,
+            "min_slots_left": 5,
+            "action_wait_min": 3,
+            "action_wait_max": 5,
+            "transfer": true,
+            "evolve": true,
+            "evolve_to_final": true,
+            "evolve_time": 25,
+            "evolve_for_xp": true,
+            "evolve_only_with_lucky_egg": false,
+            "evolve_count_for_lucky_egg": 80,
+            "may_use_lucky_egg": true,
+            "upgrade": true,
+            "upgrade_level": 30,
+            "groups": {
+                "gym": ["Dragonite", "Snorlax", "Lapras", "Arcanine"]
+            },
+            "rules": [{
+                "// Of all Pokemon with less than 124 candies, buddy the Pokemon having the highest maximum cp": {},
+                "mode": "overall",
+                "top": 1,
+                "sort": ["max_cp", "cp"],
+                "keep": { "candy": -124 },
+                "evolve": false,
+                "buddy": true
+            }, {
+                "// Buddy the Pokemon having the less candies. In case no Pokemon match first rule": {},
+                "mode": "overall",
+                "top": 1,
+                "sort": ["-candy", "max_cp", "cp"],
+                "evolve": false,
+                "buddy": true
+            }, {
+                "mode": "by_pokemon",
+                "names": ["gym"],
+                "top": 3,
+                "sort": ["iv", "ncp"],
+                "evolve": { "iv": 0.9, "ncp": 0.9 },
+                "upgrade": { "iv": 0.9, "ncp": 0.9 }
+            }, {
+                "// Keep best iv of each family and evolve it if its iv is greater than 0.9": {},
+                "mode": "by_family",
+                "top": 1,
+                "sort": ["iv"],
+                "evolve": { "iv": 0.9 }
+            }, {
+                "// Keep best ncp of each family and evolve it if its ncp is greater than 0.9": {},
+                "mode": "by_family",
+                "top": 1,
+                "sort": ["ncp"],
+                "evolve": { "ncp": 0.9 }
+            }, {
+                "// Keep best cp of each family but do not evolve it": {},
+                "mode": "by_family",
+                "top": 1,
+                "sort": ["cp"],
+                "evolve": false
+            }, {
+                "// For Pokemon of final evolution and with iv greater than 0.9, keep the best dps_attack": {},
+                "mode": "by_pokemon",
+                "names": ["!with_next_evolution"],
+                "top": 1,
+                "sort": ["dps_attack"],
+                "keep": { "iv": 0.9 }
+            }]
+        }
+    }, {
         "type": "TelegramTask",
         "config": {
             "enabled": true,
@@ -135,13 +204,13 @@
     }, {
         "type": "EvolvePokemon",
         "config": {
-            "enabled": false,
+            "enabled": true,
             "evolve_list": "all",
             "donot_evolve_list": "none",
-            "first_evolve_by": "cp",
-            "evolve_above_cp": 500,
-            "evolve_above_iv": 0.8,
-            "logic": "or",
+            "first_evolve_by": "iv",
+            "evolve_above_cp": 600,
+            "evolve_above_iv": 0.9,
+            "logic": "and",
             "min_evolve_speed": 25,
             "max_evolve_speed": 30,
             "min_pokemon_to_be_evolved": 1,
@@ -487,7 +556,7 @@
             "lure_attraction": true,
             "lure_max_distance": 2000,
             "walker": "StepWalker",
-            "log_interval": 5
+            "log_interval": 15
         }
     }, {
         "type": "FollowSpiral",
